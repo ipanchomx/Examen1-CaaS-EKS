@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: servicio-examen-1
   labels:
-    name: despliegue-caas-examen
+    name: servicio-examen-1
     app: caas-kube-examen-1
 spec:
   type: NodePort
