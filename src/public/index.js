@@ -31,12 +31,14 @@ let sendData = function() {
         // console.log(data);
         // console.log(data.result);
         tone = "";
-        if(data.result.document_tone.tone_categories != null) {
+        if(data.result.document_tone.tone_categories) {
             divEmotion.innerHTML = "";
-            tone = data.result.document_tone.tone_categories[0].tones[0];
+            // tone = data.result.document_tone.tone_categories[0].tones[0];
 
             // score = tone.score;
             // tone_name = tone.tone_name;
+
+         
 
             data.result.document_tone.tone_categories[0].tones.forEach(element => {
                 // console.log(element.score)
@@ -45,6 +47,10 @@ let sendData = function() {
 
                 divEmotion.innerHTML += `<h5> ${element.tone_name}: ${score.substring(0,4)}%</h5>`
             });
+            
+        }
+        else {
+            divEmotion.innerHTML = " Couldn't find tone for text";
         }
     })
     .catch((err) => {
