@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: despliegue-caas-examen
+  labels:
+    name: despliegue-caas-examen
+    app: caas-kube-examen-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: caas-kube-pod-1
+      app: caas-kube-examen-1
+  template:
+    metadata:
+      name: caas-kube-pod-1
+      labels:
+        name: caas-kube-pod-1
+        app: caas-kube-examen-1
+    spec:
+      containers:
+        - name: caas-kube-container
+          image: "615491348215.dkr.ecr.us-east-1.amazonaws.com/caas-examen1-efmr:latest"
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 128Mi
+              cpu: "0.2"
