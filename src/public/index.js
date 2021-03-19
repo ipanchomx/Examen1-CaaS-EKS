@@ -10,9 +10,11 @@ let sendData = function() {
     console.log(text.value);
     if(text.value == "") return alert("You must write something in English!");
 
+    
     let data = {
         text : text.value
     }
+
 
     axios({
         method: 'post',
@@ -30,6 +32,7 @@ let sendData = function() {
         // console.log(data.result);
         tone = "";
         if(data.result.document_tone.tone_categories != null) {
+            divEmotion.innerHTML = "";
             tone = data.result.document_tone.tone_categories[0].tones[0];
 
             // score = tone.score;

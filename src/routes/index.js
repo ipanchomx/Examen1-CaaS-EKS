@@ -17,7 +17,7 @@ const toneAnalyzer = new ToneAnalyzerV3({
 
 // Ruta de autor
 router.route('/autor').get((req, res) => {
-    res.send({ alumno : "EFMR", servicio : "Cloud Foundry en IBM Cloud" });
+    res.send({ alumno : "EFMR", servicio : "EKS en AWS" });
   })
 
 // Ruta para hacer peticiones a servicio Tone Analyzer
